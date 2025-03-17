@@ -1,17 +1,3 @@
-# pych9329
-Python module to control ch9329
-
-## Installation
-
-You can install the package via pip:
-
-```bash
-pip install pych9329
-```
-
-## Usage
-
-```py
 from serial import Serial
 
 from pych9329 import keyboard
@@ -49,15 +35,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-```
-
-## License
-
-MIT license.
-
-## Contributing
-
-This project is modified from ch9329 library.
-
-Thanks to the original author of the ch9329 library [Pradish Bijukchhe](https://github.com/pradishb)
