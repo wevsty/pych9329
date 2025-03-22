@@ -12,6 +12,7 @@ import pych9329.frame_utils as frame_utils
 from pych9329.hid_code_map import HID_CODE_MAP
 
 MODIFIER_KEY_NAME_MAP = {
+    "": 0b00000000,
     "ctrl": 0b00000001,
     "ctrl_left": 0b00000001,
     "shift": 0b00000010,
@@ -24,6 +25,12 @@ MODIFIER_KEY_NAME_MAP = {
     "shift_right": 0b00100000,
     "alt_right": 0b01000000,
     "win_right": 0b10000000,
+    # alias win
+    "gui": 0b00001000,
+    "meta": 0b00001000,
+    # alias empty
+    "null": 0b00000000,
+    "none": 0b00000000,
 }
 
 
