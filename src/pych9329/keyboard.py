@@ -148,31 +148,31 @@ def trigger(
     keys: list[str],
     modifiers: Optional[List[str]] = None,
 ) -> None:
-    press_keys = keys.copy()
-    press_modifiers = modifiers.copy()
-    press_keys = deduplicate_list(press_keys)
-    press_modifiers = deduplicate_list(press_modifiers)
+    trigger_keys = keys.copy()
+    trigger_modifiers = modifiers.copy()
+    trigger_keys = deduplicate_list(trigger_keys)
+    trigger_modifiers = deduplicate_list(trigger_modifiers)
     # Supports press to 6 normal buttons at the same time
-    if len(press_keys) > 6:
+    if len(trigger_keys) > 6:
         raise TooManyKeys("CH9329 supports maximum of 6 keys to be pressed at once.")
-    if len(modifiers) > 8:
+    if len(trigger_modifiers) > 8:
         raise TooManyKeys(
             "CH9329 supports maximum of 8 control keys to be pressed at once."
         )
-    # if len(keys) <= 6, add empty keys
-    while len(press_keys) != 6:
-        press_keys.append("")
+    # if len(keys) < 6, add empty keys
+    while len(trigger_keys) < 6:
+        trigger_keys.append("")
     send_general_data(
         serial_object,
         (
-            press_keys[0],
-            press_keys[1],
-            press_keys[2],
-            press_keys[3],
-            press_keys[4],
-            press_keys[5],
+            trigger_keys[0],
+            trigger_keys[1],
+            trigger_keys[2],
+            trigger_keys[3],
+            trigger_keys[4],
+            trigger_keys[5],
         ),
-        press_modifiers,
+        trigger_modifiers,
     )
 
 
