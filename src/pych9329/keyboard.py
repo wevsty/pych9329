@@ -202,7 +202,7 @@ def click(
     release(serial_object)
 
 
-def send_text_data(
+def send_text(
     ser: Serial,
     text: str,
     min_interval: float = 0.02,

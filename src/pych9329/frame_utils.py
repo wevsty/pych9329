@@ -3,13 +3,13 @@ from enum import Enum
 
 
 class DataFrameStatus(Enum):
-    SUCCESS = b'\x00'
-    ERROR_TIMEOUT = b'\xe1'
-    ERROR_HEAD = b'\xe2'
-    ERROR_CMD = b'\xe3'
-    ERROR_SUM = b'\xe4'
-    ERROR_PARA = b'\xe5'
-    ERROR_OPERATE = b'\xe6'
+    SUCCESS = b"\x00"
+    ERROR_TIMEOUT = b"\xe1"
+    ERROR_HEAD = b"\xe2"
+    ERROR_CMD = b"\xe3"
+    ERROR_SUM = b"\xe4"
+    ERROR_PARA = b"\xe5"
+    ERROR_OPERATE = b"\xe6"
 
 
 @dataclass
@@ -17,8 +17,8 @@ class DataFrame:
     HEAD: bytes
     ADDR: bytes
     CMD: bytes
-    LEN: bytes = b'\x00'
-    DATA: bytes = b''
+    LEN: bytes = b"\x00"
+    DATA: bytes = b""
 
     def create_frame(self) -> bytes:
         checksum = self.calc_checksum()
@@ -31,7 +31,7 @@ class DataFrame:
         return self.DATA
 
     def get_data_length(self) -> int:
-        length = int.from_bytes(self.LEN, byteorder='big')
+        length = int.from_bytes(self.LEN, byteorder="big")
         return length
 
     def set_data(self, data: bytes) -> None:
@@ -39,7 +39,7 @@ class DataFrame:
         self.set_data_length(len(data))
 
     def set_data_length(self, length: int) -> None:
-        self.LEN = int.to_bytes(length, byteorder='big')
+        self.LEN = int.to_bytes(length, byteorder="big")
 
     def calc_frame_length(self, buffer: bytes) -> int:
         header_size = 5
@@ -66,9 +66,9 @@ class DataFrame:
             sum(
                 [
                     head_sum,
-                    int.from_bytes(self.ADDR, byteorder='big'),
-                    int.from_bytes(self.CMD, byteorder='big'),
-                    int.from_bytes(self.LEN, byteorder='big'),
+                    int.from_bytes(self.ADDR, byteorder="big"),
+                    int.from_bytes(self.CMD, byteorder="big"),
+                    int.from_bytes(self.LEN, byteorder="big"),
                     data_sum,
                 ]
             )
@@ -95,5 +95,5 @@ class DataFrame:
         return parse_result
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     pass

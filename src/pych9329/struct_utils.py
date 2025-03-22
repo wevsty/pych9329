@@ -9,18 +9,18 @@ class StructureMeta(type):
         cls, _cls_name: str, _bases: tuple[type, ...], _cls_dict: dict[str, Any]
     ):
         super().__init__(cls)
-        fields = getattr(cls, '_fields_', [])
+        fields = getattr(cls, "_fields_", [])
 
         offset = 0
         for field_format, field_name in fields:
-            if field_format.startswith(('<', '>', '!', '@')):
+            if field_format.startswith(("<", ">", "!", "@")):
                 byte_order = field_format[0]
                 field_format = field_format[1:]
             else:
-                byte_order = ''
+                byte_order = ""
             field_format = byte_order + field_format
             offset += struct.calcsize(field_format)
-        setattr(cls, '_fields_struct_size_', offset)
+        setattr(cls, "_fields_struct_size_", offset)
 
 
 class Structure(metaclass=StructureMeta):
@@ -83,13 +83,13 @@ class Structure(metaclass=StructureMeta):
         return cls(buffer.read(cls._fields_struct_size_))
 
 
-'''
+"""
 class ExampleStruct(Structure):
     _fields_ = [
         ('d', 'min_x'),
         ('d', 'min_y'),
     ]
-'''
+"""
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     pass
