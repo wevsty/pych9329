@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pych9329"
-version = "0.1.5"
+version = "0.1.6"
 description = "Python module to control the ch9329"
 authors = ["wevsty <ty@wevs.org>"]
 license = "MIT"
