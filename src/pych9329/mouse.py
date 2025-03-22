@@ -13,6 +13,7 @@ MOUSE_BUTTON_NAME_MAP: typing.Final[dict[str, bytes]] = {
     "right": b"\x02",
     "center": b"\x04",
     # alias
+    "": b"\x00",
     "none": b"\x00",
     "middle": b"\x04",
 }
