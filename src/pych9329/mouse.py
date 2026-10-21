@@ -8,22 +8,34 @@ import pych9329.exceptions as exceptions
 import pych9329.frame_utils as frame_utils
 
 MOUSE_BUTTON_NAME_MAP: typing.Final[dict[str, bytes]] = {
-    "null": b"\x00",
+    # Recommended name
+    "": b"\x00",
+    "none": b"\x00",
     "left": b"\x01",
     "right": b"\x02",
     "middle": b"\x04",
+    "xbutton1": b"\x08",
+    "xbutton2": b"\x10",
+    # some alias
+    "null": b"\x00",
+    "release": b"\x00",
+    "center": b"\x04",
+    "back": b"\x08",
+    "forward": b"\x10",
     # Autohotkey-style alias
     "NULL": b"\x00",
     "LButton": b"\x01",
     "RButton": b"\x02",
     "MButton": b"\x04",
+    "XButton1": b"\x08",
+    "XButton2": b"\x10",
     # other style alias
-    "": b"\x00",
-    "none": b"\x00",
     "left_button": b"\x01",
     "right_button": b"\x02",
     "middle_button": b"\x04",
-    "center": b"\x04",
+    "center_button": b"\x04",
+    "xbutton1_button": b"\x08",
+    "xbutton2_button": b"\x10",
 }
 
 
